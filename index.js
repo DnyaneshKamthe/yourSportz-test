@@ -8,6 +8,7 @@ const userRoutes = require("./routes/user.routes");
 const authRoutes = require("./routes/auth.routes");
 const passportSetup = require("./config/passport");
 var indexRouter = require('./routes/index');
+const path = require('path')
 
 const publicPath = path.join(__dirname, 'public'); //
 // Middleware to parse JSON bodies
