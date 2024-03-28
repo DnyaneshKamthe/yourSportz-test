@@ -7,10 +7,13 @@ const cookieSession = require("cookie-session");
 const userRoutes = require("./routes/user.routes");
 const authRoutes = require("./routes/auth.routes");
 const passportSetup = require("./config/passport");
+var indexRouter = require('./routes/index');
 
+const publicPath = path.join(__dirname, 'public'); //
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+app.use(express.static(publicPath));
 // Middleware for cookie session management
 app.use(
 	cookieSession({
@@ -36,6 +39,7 @@ app.use(cors(
 ));
 
 // routes
+app.use('/', indexRouter);
 app.use("/", userRoutes);
 app.use("/auth", authRoutes);
 
